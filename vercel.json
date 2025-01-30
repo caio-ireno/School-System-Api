@@ -9,15 +9,15 @@
   "routes": [
     {
       "src": "/alunos",
-      "dest": "/api/aluno/aluno_routes.py"
+      "dest": "/api/alunos/aluno_routes.py"
     },
     {
       "src": "/turmas",
-      "dest": "/api/turma_routes.py"
+      "dest": "/api/turma/turma_routes.py"
     },
     {
       "src": "/professores",
-      "dest": "/app/professor_routes.py"
+      "dest": "/app/professor/professor_routes.py"
     }
   ]
 }
