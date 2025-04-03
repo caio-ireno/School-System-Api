@@ -6,6 +6,8 @@ from config import db
 
 alunos_blueprint = Blueprint('alunos', __name__)
 
+caio eduardo
+
 @alunos_blueprint.route('/alunos', methods=['GET'])
 def get_alunos():
     aluno = listar_alunos()
