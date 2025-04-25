@@ -5,7 +5,6 @@ from config import db
 class Aluno(db.Model):
   __tablename__ = "alunos"
 
-   
   id = db.Column(db.Integer, primary_key=True)
   nome = db.Column(db.String(100), nullable=False)
   idade = db.Column(db.Integer, nullable=False)
@@ -29,6 +28,9 @@ class Aluno(db.Model):
   def calcular_idade(self):
     today = date.today()
     return today.year - self.data_nascimento.year - ((today.month, today.day) < (self.data_nascimento.month, self.data_nascimento.day))
+
+  def calcular_nota_final(self):
+    pass
 
   def to_dict(self):  
     return {'id': self.id, 'nome': self.nome, "idade": self.idade, 'data_nascimento': self.data_nascimento.isoformat(), "nota_primeiro_semestre": self.nota_primeiro_semestre, "nota_segundo_semestre": self.nota_segundo_semestre, "turma_id": self.turma_id, "media_final": self.media_final}
