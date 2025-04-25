@@ -1,5 +1,8 @@
 from swagger.swagger_config import configure_swagger
-from config import app,db
+import pytest
+import os
+import sys
+from config import app, db
 from alunos.alunos_routes import alunos_blueprint
 from turma.turma_routes import turmas_blueprint
 from professor.professor_routes import professores_blueprint
@@ -13,5 +16,16 @@ configure_swagger(app)
 with app.app_context():
     db.create_all()
 
+def run_tests():
+    os.environ['FLASK_ENV'] = 'testing'
+    # Executa os testes e captura o resultado
+    result = pytest.main(['--maxfail=1', '--disable-warnings', '--tb=short'])
+    return result
+
 if __name__ == '__main__':
-  app.run(host=app.config["HOST"], port = app.config['PORT'],debug=app.config['DEBUG'] )
+    result = run_tests()
+    
+    if result != 0:  # Se algum teste falhar, não inicie o servidor
+        sys.exit("Testes falharam. A aplicação não será iniciada.")
+    
+    app.run(host=app.config["HOST"], port=app.config['PORT'], debug=app.config['DEBUG'])

@@ -3,20 +3,18 @@ from professor.professor_model import listar_professores, adicionar_professor, p
 
 professores_ns = Namespace("professores", description="Operações relacionadas aos professores")
 
+
 professor_model = professores_ns.model("Professor", {
     "nome": fields.String(required=True, description="Nome do professor"),
-    "data_nascimento": fields.String(required=True, description="Data de nascimento (YYYY-MM-DD)"),
-    "disciplina": fields.String(required=True, description="Disciplina lecionada"),
-    "salario": fields.Float(required=True, description="Salário do professor"),
+    "materia": fields.String(required=True, description="Materia"),
+    "observacao": fields.String(required=True, description="Observações"),
 })
 
 professor_output_model = professores_ns.model("ProfessorOutput", {
     "id": fields.Integer(description="ID do professor"),
     "nome": fields.String(description="Nome do professor"),
-    "idade": fields.Integer(description="Idade do professor"),
-    "data_nascimento": fields.String(description="Data de nascimento (YYYY-MM-DD)"),
-    "disciplina": fields.String(description="Disciplina lecionada"),
-    "salario": fields.Float(description="Salário do professor"),
+    "materia": fields.String(required=True, description="Materia"),
+    "observacao": fields.String(required=True, description="Observações"),
 })
 
 @professores_ns.route("/")
