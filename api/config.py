@@ -4,7 +4,7 @@ import os
 db = SQLAlchemy()
 
 class Config:
-    HOST = '127.0.0.1'
+    HOST = '0.0.0.0'
     PORT = 5000
     DEBUG = True
 
