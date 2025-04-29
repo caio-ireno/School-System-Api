@@ -1,14 +1,14 @@
-import os
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
+import os
 
-app = Flask(__name__)
-CORS(app)
-app.config['HOST'] = '0.0.0.0'
-app.config['PORT']=8000
-app.config['DEBUG'] = True
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy()
 
-db = SQLAlchemy(app)
+class Config:
+    HOST = '127.0.0.1'
+    PORT = 5000
+    DEBUG = True
+
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Por padrão usa SQLite. Em produção, a variável DATABASE_URL do Render vai sobrescrever.
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///school-db.db')

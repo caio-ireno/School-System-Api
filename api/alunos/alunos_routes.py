@@ -27,7 +27,6 @@ def get_aluno(id_aluno):
 def create_aluno():
     try:
         data = request.json
-        print(f"Dados recebidos: {data}")
         response, status_code = adicionar_aluno(data)
         return jsonify(response), status_code
 
