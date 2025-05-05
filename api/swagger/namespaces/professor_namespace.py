@@ -8,7 +8,7 @@ professor_model = professores_ns.model("Professor", {
     "nome": fields.String(required=True, description="Nome do professor"),
     "materia": fields.String(required=True, description="Materia"),
     "observacoes ": fields.String(required=True, description="Observações"),
-    "idade ": fields.Number(required=True, description="Idade"),
+    "idade ": fields.Integer(required=True, description="Idade"),
 })
 
 professor_output_model = professores_ns.model("ProfessorOutput", {
@@ -16,7 +16,7 @@ professor_output_model = professores_ns.model("ProfessorOutput", {
     "nome": fields.String(description="Nome do professor"),
     "materia": fields.String(required=True, description="Materia"),
     "observacoes ": fields.String(required=True, description="Observações"),
-    "idade ": fields.Number(required=True, description="Idade"),
+    "idade ": fields.Integer(required=True, description="Idade"),
 })
 
 @professores_ns.route("/")
