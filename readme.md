@@ -1,5 +1,7 @@
 # 📚 API Escolar com Flask + SQLAlchemy
 
+asdasdasd
+
 Esta é uma API educacional desenvolvida em Flask, com rotas para Alunos, Professores e Turmas.  
 A API usa SQLite localmente e PostgreSQL em produção (Render).
 
