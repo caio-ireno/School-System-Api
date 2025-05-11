@@ -60,7 +60,7 @@ def adicionar_aluno(novos_dados):
             data_nascimento=datetime.strptime(novos_dados['data_nascimento'], "%Y-%m-%d").date(),
             nota_primeiro_semestre=float(novos_dados['nota_primeiro_semestre']),
             nota_segundo_semestre=float(novos_dados['nota_segundo_semestre']),
-            turma_id = novos_dados['turma_id'] if turma is not None else turma_none
+            turma_id = novos_dados['turma_id'] if turma is not None else turma_none,
             media_final=(
                 float(novos_dados['nota_primeiro_semestre']) + float(novos_dados['nota_segundo_semestre'])
             ) / 2,
