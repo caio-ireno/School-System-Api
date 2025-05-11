@@ -53,14 +53,14 @@ def listar_alunos():
 def adicionar_aluno(novos_dados):
         turma = Turma.query.get(novos_dados['turma_id'])
         if(turma is None):
-            return {"message": "Turma não existe"}, 404
-        
+            turma_none = 0
+
         novo_aluno = Aluno(
             nome=novos_dados['nome'],
             data_nascimento=datetime.strptime(novos_dados['data_nascimento'], "%Y-%m-%d").date(),
             nota_primeiro_semestre=float(novos_dados['nota_primeiro_semestre']),
             nota_segundo_semestre=float(novos_dados['nota_segundo_semestre']),
-            turma_id=int(novos_dados['turma_id']),
+            turma_id=turma is not None novos_dados['turma_id'] else turma_none,
             media_final=(
                 float(novos_dados['nota_primeiro_semestre']) + float(novos_dados['nota_segundo_semestre'])
             ) / 2,
