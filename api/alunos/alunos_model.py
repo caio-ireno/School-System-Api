@@ -27,6 +27,8 @@ class Aluno(db.Model):
   
   def calcular_idade(self):
     today = date.today()
+    print(self.data_nascimento)
+    print("aaaaaaaaaaaaaaa")
     return today.year - self.data_nascimento.year - ((today.month, today.day) < (self.data_nascimento.month, self.data_nascimento.day))
 
   def calcular_nota_final(self):
@@ -78,7 +80,8 @@ def atualizar_aluno(id_aluno, novos_dados):
     raise AlunoNaoEncontrado
 
   aluno.nome = novos_dados['nome']
-  aluno.data_nascimento = novos_dados['data_nascimento']
+  #aluno.data_nascimento = novos_dados['data_nascimento']
+  aluno.data_nascimento=datetime.strptime(novos_dados['data_nascimento'], "%Y-%m-%d").date()
   aluno.nota_primeiro_semestre = novos_dados['nota_primeiro_semestre']
   aluno.nota_segundo_semestre = novos_dados['nota_segundo_semestre']
   aluno.media_final = (aluno.nota_primeiro_semestre + aluno.nota_segundo_semestre) / 2
