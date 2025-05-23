@@ -10,6 +10,8 @@ app = Flask(__name__)
 app.config.from_object(Config)      # <-- primeiro aplica a configuração
 db.init_app(app)                    # <-- depois inicializa o SQLAlchemy
 
+asd
+
 CORS(app)
 
 # Registra blueprints
